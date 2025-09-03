@@ -1,90 +1,41 @@
 
-# Projeto: Sistema de Cadastro com Python, MySQL e API
+# Sistema de Cadastro
 
-Usuario:pedro
-Usuario:neto
-Usuario:professora
-senhas: 123
+Usuario: pedro, neto, professora
+Senha: 123
 
-Este sistema permite fazer login, cadastrar pessoas e consultar fatos históricos interessantes sobre o ano de nascimento de cada pessoa usando uma API pública.
+## O que faz
 
-## ✨ Funcionalidades
+- Login com usuario e senha
+- Cadastra 3 pessoas (nome, idade, peso) 
+- Mostra fato historico do ano de nascimento usando uma API
+- Calcula media de idade e peso
+- Salva tudo no banco MySQL
 
-- **Sistema de Login**: Autenticação segura com bcrypt
-- **Cadastro de Pessoas**: Coleta nome, idade e peso
-- **Consulta API**: Busca fatos históricos do ano de nascimento via Numbers API
-- **Cálculos**: Média de idade e peso dos cadastrados
-- **Banco de Dados**: Armazena dados no MySQL
+## Como usar
 
-## 📋 Requisitos
-
-- **Python 3.13.3** (ou versão compatível)
-- **MySQL** instalado e rodando (porta padrão `3306`)
-- Usuário do MySQL com permissões de leitura/escrita
-- **Conexão com internet** para consultar a API de fatos históricos
-
-## 📦 Instalação das Dependências
-
-```bash
-# Instalar bibliotecas necessárias
+1. Instalar dependencias:
+```
 py -m pip install mysql-connector-python bcrypt requests
-
-# Ou individualmente:
-py -m pip install mysql-connector-python
-py -m pip install bcrypt  
-py -m pip install requests
 ```
 
-## ⚙️ Configuração
-
-1. **Banco de Dados**: Ajuste as credenciais de conexão no arquivo `idades.py`:
-   ```python
-   conexao = mysql.connector.connect(
-       host="localhost",
-       user="root",           # Seu usuário MySQL
-       password="sua_senha",  # Sua senha MySQL
-       database="atv"         # Nome do banco
-   )
-   ```
-
-2. **Tabelas necessárias**:
-   - `usuarios`: Para login (campos: usuario, senha)
-   - `pessoas`: Para cadastros (campos: nome, idade, peso)
-
-## 🚀 Como Executar
-
-```bash
+3. Rodar:
+```
 py idades.py
 ```
 
-## 💡 Como Funciona
+## API
 
-1. **Login**: Digite usuário e senha (autenticação com bcrypt)
-2. **Cadastro**: Sistema solicita dados de 3 pessoas:
-   - Nome
-   - Idade  
-   - Peso
-3. **API de Curiosidades**: Para cada pessoa, o sistema:
-   - Calcula ano de nascimento (2024 - idade)
-   - Consulta Numbers API para buscar fato histórico
-   - Exibe curiosidade histórica em inglês
-4. **Resultados**: Mostra lista completa com médias calculadas
+Usa a Numbers API pra pegar fatos sobre anos: http://numbersapi.com
 
-## 🌐 API Utilizada
+Mostra um fato curioso do ano que vc nasceu!
 
-### Numbers API
-Retorna fatos históricos interessantes sobre anos em inglês.
-**Endpoint**: `http://numbersapi.com/{ano}/year`
+Exemplo: "1995 is the year that the first wiki goes online"
 
-**Exemplos de saída**:
-- "1995 is the year that the first wiki goes online"
-- "2000 is the year that NASDAQ reaches its all-time high"
+## Observacoes
 
-## ⚠️ Observações
-
-- Necessária conexão com internet para consultar fatos históricos
-- Se a API estiver indisponível, exibe mensagem de erro
-- Dados são salvos automaticamente no MySQL após cada cadastro
-- Fatos históricos são exibidos em inglês
+- Precisa de internet pra API funcionar
+- Dados sao salvos no MySQL automaticamente
 
 
+Pedro Soares e José Neiva
